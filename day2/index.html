@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-App</title>
+    <h1>To-Do List</h1>
+
+</head>
+
+
+<body>
+    <h4 style="margin-bottom: 10px;">Add your Task here</h4>
+
+    <input id="input" type="text" style="margin-top: 10px; padding: 5px; width: 200px;" />
+
+    <input id="button" onclick="addTask()" type="button" value="Add" />
+
+
+    <ol id="list">
+
+    </ol>
+
+</body>
+
+<script>
+    const input = document.getElementById("input");
+
+
+    const list = document.getElementById("list");
+
+    function addTask() {
+
+        newLi = document.createElement("li");
+        if (input.value === "") {
+            alert("Write some task before add")
+        } else {
+            newLi.innerHTML = input.value + '<button onclick="deleteTask()"; style="margin-left: 50px; border-radius: 20px; background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer"> DEl</button>'
+                + '<button onclick="editTask(button)"; style=" margin-left:4px; border-radius: 20px; background-color: green; color: white; border: none; padding: 5px 10px; cursor: pointer"> Edit</button>';
+
+            list.appendChild(newLi);
+            input.value = "";
+        }
+
+    }
+    function deleteTask(e) {
+        console.log(event.target.parentElement.remove());
+
+    }
+
+    function editTask(button) {
+        let textSpan = button.parentElement.firstChild;
+        let newText = prompt("edit your task:", textSpan.textContent);
+        if (newText !== null && newText.trim() !== "") {
+            textSpan.textContent = newText;
+        }
+    }
+
+
+
+</script>
+
+</html>

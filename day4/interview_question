@@ -1,0 +1,55 @@
+
+
+1. what is spread 
+
+2. slice and splice diffrence
+
+3. let const and var diffrence
+
+4. map and filter diff 
+
+5. what is the dff between normal and arraow function
+
+
+Ans >>>>>>>>>>>>>>>>>>>
+
+// 1. Spread Operator (...)
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5]; // Expands arr1 into a new array
+console.log(arr2); // [1, 2, 3, 4, 5]
+
+const obj1 = { name: "John", age: 25 };
+const obj2 = { ...obj1, city: "NY" }; // Copies obj1 properties
+console.log(obj2); // { name: 'John', age: 25, city: 'NY' }
+
+// 2. Slice vs Splice
+const arr = [0, 1, 2, 3, 4, 5];
+console.log(arr.slice(1, 4)); // [1, 2, 3] (extracts, no change in original)
+console.log(arr.splice(1, 3, 99, 100)); // Removes [1,2,3], adds 99,100
+console.log(arr); // Modified array
+
+// 3. let, const, var
+var x = 10; // Function-scoped, can be redeclared
+let y = 20; // Block-scoped, cannot be redeclared
+const z = 30; // Constant, cannot be reassigned
+
+// 4. map() vs filter()
+const numbers = [1, 2, 3, 4];
+console.log(numbers.map(num => num * 2)); // [2, 4, 6, 8] (modifies all elements)
+console.log(numbers.filter(num => num > 2)); // [3, 4] (filters based on condition)
+
+// 5. Normal Function vs Arrow Function
+function normalFunc() {
+    return "Hello";
+}
+const arrowFunc = () => "Hello";
+console.log(normalFunc(), arrowFunc());
+
+// Arrow function doesn't have its own 'this'
+const obj = {
+    value: 10,
+    normal() { console.log(this.value); }, // 'this' refers to obj
+    arrow: () => console.log(this.value) // 'this' refers to outer scope
+};
+obj.normal(); // 10
+obj.arrow(); // undefined (in strict mode)
