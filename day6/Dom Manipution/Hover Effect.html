@@ -1,0 +1,27 @@
+<html>
+  <body>
+    <div id="hoverText" style="display: flex; justify-content: center; align-items: center; border:2px  solid black; height: 20 ; width: 200; ">
+        <h5 id="hoverTextt">Hover on it</h5>
+
+    </div>
+
+    <script>
+        const hoverText = document.getElementById('hoverText');
+           
+        hoverText.addEventListener('mouseenter',()=>{
+          hoverText.innerHTML = 'Mouse Enter' ;
+          hoverText.style.color ='red' ;
+
+
+
+        });
+
+        hoverText.addEventListener('mouseleave',()=>{
+        hoverText.style.color = 'green' ; hoverText.innerHTML = 'Mouse Leave'
+        })
+
+        
+        
+    </script>
+  </body>
+</html>

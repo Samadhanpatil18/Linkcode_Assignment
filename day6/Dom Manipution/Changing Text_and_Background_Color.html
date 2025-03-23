@@ -1,0 +1,33 @@
+<!-- //Changing Text and Background Color  -->
+
+<html>
+    <body>
+        <p id="text"> Hello welcome to dom manipution</p>
+        <button id="changeTextBtn">change Text</button>
+        <button id="changeBgBtn">Change background colour</button>
+
+   
+    <script>
+
+        const text =document.getElementById('text');
+
+        const changeTextBtn = document.getElementById('changeTextBtn');
+        const changeBgBtn =document.getElementById('changeBgBtn');
+
+
+        changeTextBtn.addEventListener('click',()=>{
+            text.innerText = 'Text has been changed !';
+
+        });
+
+        changeBgBtn.addEventListener('click',()=>{
+            document.body.style.backgroundColor = 'blue';
+
+        });
+
+
+
+    </script>
+     </body>
+
+</html>

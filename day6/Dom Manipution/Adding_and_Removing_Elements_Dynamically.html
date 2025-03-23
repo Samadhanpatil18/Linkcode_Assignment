@@ -1,0 +1,37 @@
+<html>
+  <body>
+    <button id="addItemBtn">Add Item</button>
+    <button id="removeItemBtn">Remove Item</button>
+    <ul id="itemList"></ul>
+
+    <script>
+        const addItemBtn = document.getElementById('addItemBtn');
+        const removeItemBtn = document.getElementById('removeItemBtn');
+        const itemList =document.getElementById('itemList');
+
+        addItemBtn.addEventListener('click',()=>{
+
+            const li = document.createElement('li');
+
+            li.innerText = 'New Item';
+            li.style.border ='1px solid black';
+            li.style.padding = '5px';
+            li.style.margin = '5px';
+
+           itemList.appendChild(li);
+
+
+        });
+
+        removeItemBtn.addEventListener('click',()=>{
+            if(itemList.lastChild){
+                itemList.removeChild(itemList.lastChild) //passing li
+            }
+        })
+
+    </script>
+
+
+
+  </body>
+</html>

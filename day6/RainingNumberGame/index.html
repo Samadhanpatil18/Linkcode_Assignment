@@ -1,0 +1,49 @@
+<html>
+<head>
+    <style>
+        body {
+            background-color: black;
+            overflow: hidden;
+            margin: 0;
+        }
+        .number {
+            position: absolute;
+            top: 0;
+            font-size: 53px;
+            color: limegreen;
+            font-family: 'Orbitron', sans-serif;
+
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createNumber() {
+            const num = document.createElement("div");
+            num.classList.add("number");
+            num.innerText = Math.floor(Math.random() * 10); // Random digit (0-9)
+            document.body.appendChild(num);
+
+            
+            num.style.left = Math.random() * window.innerWidth + "px";
+
+            let speed = Math.random() * 3 + 2; // Random speed between 2px and 5px 
+            let pos = 0; // Starting posiiton 0
+
+            function fall() {
+                if (pos < window.innerHeight) {
+                    pos += speed; 
+                    num.style.top = pos + "px"; 
+                    requestAnimationFrame(fall); 
+                } else {
+                    num.remove(); 
+                }
+            }
+
+            fall();
+        }
+
+        setInterval(createNumber, 50); //speed of generating no.
+    </script>
+</body>
+</html>
